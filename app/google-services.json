@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "388928536424",
+    "firebase_url": "https://trackyourbag-20ad2.firebaseio.com",
+    "project_id": "trackyourbag-20ad2",
+    "storage_bucket": "trackyourbag-20ad2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388928536424:android:8eb4852e56908d26",
+        "android_client_info": {
+          "package_name": "com.example.ravi.bag_location"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388928536424-tjguff1ico2u048phrs5p3ehf3m23mna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ravi.bag_location",
+            "certificate_hash": "8a5be53a741286300ae27ae9cf3f40b99c1d8adc"
+          }
+        },
+        {
+          "client_id": "388928536424-49o3qt7g1nfsl5q80de1pq6mf1bemuqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEG6rTJ1dsfofnQEJjZahKvHhif4ndn60"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388928536424-49o3qt7g1nfsl5q80de1pq6mf1bemuqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

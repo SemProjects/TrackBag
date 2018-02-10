@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context="com.example.ravi.bag_location.login">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="TrackBag"
+    android:textSize="30dp"
+    android:id="@+id/textView"
+    android:textColor="@color/red"
+    android:layout_gravity="center_horizontal"
+    android:textStyle="bold|italic"
+    android:layout_margin="20dp"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Email"
+    android:textColor="@color/redd"
+    android:textSize="15dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:id="@+id/editTextemail"
+    android:textColor="@color/black"
+    android:layout_gravity="center_horizontal" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Password"
+    android:textColor="@color/redd"
+    android:textSize="15dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"/>
+
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="textPassword"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:id="@+id/editTextpass"
+    android:textColor="@color/black"
+    android:layout_gravity="center_horizontal"/>
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:text="SIGN IN"
+    android:id="@+id/btnLogin"
+    android:background="@drawable/my_button"
+    android:alpha="0.7"
+    android:layout_gravity="center_horizontal" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:text="New to TrackBag? \n            Sign Up"
+    android:id="@+id/tvSignup"
+    android:textSize="15dp"
+    android:textColor="@color/material_blue_grey_800"
+    android:layout_gravity="center_horizontal" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    android:text="______________________ OR _____________________"
+    android:textSize="15dp"
+    android:textColor="@color/colorPrimaryDark"
+    android:layout_gravity="center_horizontal" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal">
+    <ImageButton
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/g_"
+        android:id="@+id/google"/>
+
+</LinearLayout>
+
+
+</LinearLayout>
