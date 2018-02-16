@@ -55,15 +55,9 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
     ImageButton g;
     private static final int RC_SIGN_IN = 007;
     private ProgressDialog mProgressDialog;
-    boolean b;
-    FirebaseDatabase database;
-    DatabaseReference myRef;
-    String eemail;
 
     void init()
     {
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("users");
         signin=(TextView)findViewById(R.id.tvSignup);
         signin.setOnClickListener(this);
         login = (Button)findViewById(R.id.btnLogin);
@@ -149,7 +143,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
             firebaseAuthWithGoogle(acct);
         }
         else {
-            Toast.makeText(Login.this, "Google Authentication Failed", Toast.LENGTH_LONG).show();
+            Toast.makeText(login.this, "Google Authentication Failed", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -162,47 +156,16 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
                 if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "signInWithCredential:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    String email = user.getEmail();
-                    checkAccountEmailExistInFirebase(email);
-
-                } else {
-                    hideProgressDialog();
-                    // If sign in fails, display a message to the user.
-                    Log.w("TAG", "signInWithCredential:failure", task.getException());
-                    Toast.makeText(Login.this, "Authentication failed.",Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(login.this, MainActivity.class);
+                    startActivity(i);
                 }
-            }
-        });
-    }
-    public void checkAccountEmailExistInFirebase(String email) {
-        eemail=email;
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot topSnapshot) {
-                for (DataSnapshot snapshot: topSnapshot.getChildren()) {
-                    user USER = snapshot.getValue(user.class);
-                    System.out.println("*********User Name:" + USER.name);
-                    if (USER != null && USER.email.equals(eemail)) {
-                        b=true;
+                 else{
+                        hideProgressDialog();
+                        // If sign in fails, display a message to the user.
+                        Log.w("TAG", "signInWithCredential:failure", task.getException());
+                        Toast.makeText(login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
-                    else
-                        System.out.println("**********Null data found");
-                }
-                hideProgressDialog();
-                if(b) {
-                    Intent i = new Intent(Login.this, MainActivity.class);
-                    startActivity(i);
-                }
-                else{
-                    Intent i = new Intent(Login.this, signup_2.class);
-                    startActivity(i);
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.e("TAG", "Failed to read user", error.toException());
+
             }
         });
     }
@@ -211,7 +174,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
         int x=v.getId();
         if(x==R.id.tvSignup)
         {
-            Intent i=new Intent(Login.this,signup_1.class);
+            Intent i=new Intent(login.this,signup.class);
             startActivity(i);
         }
         if(x==R.id.btnLogin) {
@@ -220,11 +183,10 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
             if (em.matches("") || ps.matches("")) {
                 System.out.println("in" + em + ps);
                 if (em.matches("")) {
-                    Toast.makeText(Login.this, "Email Field is Empty", Toast.LENGTH_SHORT).show();
+                    email.setError("Email Field is Empty");
                 }
                 if (ps.matches("")) {
-                    ;
-                    Toast.makeText(Login.this, "Password Field is Empty", Toast.LENGTH_SHORT).show();
+                    pass.setError("Password Field is Empty");
                 }
             } else
                 signIn(email.getText().toString().trim(), pass.getText().toString().trim());
@@ -251,7 +213,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
     }
     private void signIn(String email, String password) {
         Log.d("Tag", "signIn:" + email);
-        final ProgressDialog progressDialog = new ProgressDialog(Login.this);
+        final ProgressDialog progressDialog = new ProgressDialog(login.this);
         progressDialog.setMessage("Signing In....");
         progressDialog.show();
         // [START sign_in_with_email]
@@ -264,11 +226,11 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
                         progressDialog.dismiss();
                         if (!task.isSuccessful()) {
                             Log.d("Tag", "signInWithEmail:failed", task.getException());
-                            Toast.makeText(Login.this, "Either Password or Email Incorrect", Toast.LENGTH_LONG).show();
+                            Toast.makeText(login.this, "Either Password or Email Incorrect", Toast.LENGTH_LONG).show();
                         }
                         else
                         {
-                            Intent i = new Intent(Login.this, MainActivity.class);
+                            Intent i = new Intent(login.this, MainActivity.class);
                             startActivity(i);
                         }
                     }
@@ -276,7 +238,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
                 });
 
     }
-    private void signOut() {
+    public void signOut() {
         mAuth.signOut();
 
     }
@@ -315,4 +277,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, On
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Log.d("TAG", "onConnectionFailed:" + connectionResult);
     }
+
+
+
 }

@@ -14,12 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Welcome to TerackBa"
+        android:text="Welcome to TrackBag"
         android:textSize="25dp"
         android:id="@+id/textView"
         android:textColor="@color/red"
         android:layout_gravity="center_horizontal"
-        android:fontFamily="cursive"
         android:textStyle="bold|italic"
         android:layout_margin="20dp"></TextView>
     <TextView
@@ -106,25 +105,55 @@
         android:layout_marginRight="20dp"
         android:textColor="@color/black"
         android:layout_gravity="center_horizontal" />
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bag Id"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/redd"
-        android:textSize="15dp"
-        android:layout_marginLeft="20dp"/>
+        android:text="Send Verification Code"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/start_verify"
+        android:background="@drawable/my_button"
+        android:alpha="0.7"
+        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/hidden_part">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:id="@+id/editTextBagid"
+        android:id="@+id/editTextCode"
+        android:hint="Verification Code"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColor="@color/black"
         android:layout_gravity="center_horizontal" />
-
-
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Verify Code"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/verify"
+            android:background="@drawable/my_button"
+            android:alpha="0.7"
+            android:layout_gravity="center_horizontal" />
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Resend Code"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/resend"
+            android:background="@drawable/my_button"
+            android:alpha="0.7"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
